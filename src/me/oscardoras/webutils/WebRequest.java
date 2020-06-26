@@ -1,4 +1,4 @@
-package org.webutils;
+package me.oscardoras.webutils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -207,14 +207,14 @@ public class WebRequest {
 		close();
 	}
 	
-	public void respond500(Exception ex1) {
-		ex1.printStackTrace();
+	public void respond500(Exception e1) {
+		e1.printStackTrace();
 		try {
 			sendResponseHeaders(500);
 			if (!getRequestMethod().equals("HEAD")) getResponseBody().write("<html><head><title>Error 500 (Internal Server Error)</title></head><body><h1>Error 500 (Internal Server Error)</h1></body></html>".getBytes());
 			close();
-		} catch (IOException ex2) {
-			ex2.printStackTrace();
+		} catch (IOException e2) {
+			e2.printStackTrace();
 		}
 	}
 	
